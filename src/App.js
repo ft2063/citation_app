@@ -3,37 +3,41 @@ import './App.css';
 
 function App() {
   const [quotes, setQuotes] = useState([]);
-  const [randomQuote, setRandomQuote] = useState({});
+  const [currentQuote, setCurrentQuote] = useState(null);
 
   useEffect(() => {
     fetch('https://type.fit/api/quotes')
       .then(response => response.json())
-      .then(data => setQuotes(data));
+      .then(data => {
+        setQuotes(data);
+        setCurrentQuote(data[Math.floor(Math.random() * data.length)]);
+      });
   }, []);
 
-  useEffect(() => {
-    if (quotes.length > 0) {
-      const randomIndex = Math.floor(Math.random() * quotes.length);
-      setRandomQuote(quotes[randomIndex]);
-    }
-  }, [quotes]);
-
-  function handleNewQuote() {
+  const getRandomQuote = () => {
     const randomIndex = Math.floor(Math.random() * quotes.length);
-    setRandomQuote(quotes[randomIndex]);
-  }
+    setCurrentQuote(quotes[randomIndex]);
+  };
+
+  const tweetQuote = () => {
+    if (currentQuote) {
+      const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`"${currentQuote.text}" - ${currentQuote.author}`)}`;
+      window.open(twitterUrl, '_blank');
+    }
+  };
 
   return (
     <div className="container">
-      <div className="quote-box">
-        <div className="quote-text">
-          <p>"{randomQuote.text}"</p>
+      {currentQuote && (
+        <div className="quote-box">
+          <p className="quote-text">{currentQuote.text}</p>
+          <p className="quote-author">- {currentQuote.author}</p>
+          <div className="button-container">
+            <button onClick={tweetQuote}>Tweet</button>
+            <button onClick={getRandomQuote}>New Quote</button>
+          </div>
         </div>
-        <div className="quote-author">
-          <p>- {randomQuote.author || 'Unknown'}</p>
-        </div>
-        <button onClick={handleNewQuote}>New Quote</button>
-      </div>
+      )}
     </div>
   );
 }
