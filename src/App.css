@@ -1,38 +1,75 @@
-.App {
+body {
+  background-color: #3687eb;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.quote-box {
+  padding: 2rem;
+  max-width: 60%;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.quote-text {
+  font-weight: bold;
+  margin-bottom: 1rem;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  @media (min-width: 769px) {
+    font-size: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+.quote-author {
+ 
+  font-style: italic;
+ 
+
+  @media (min-width: 769px) {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 0.5rem;
+    margin-bottom: 1rem;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  
+  background-color: hsl(200, 36%, 95%);
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  
+  cursor: pointer;
+ 
+
+  @media (min-width: 769px) {
+    font-size: 1.5rem;
+    padding: 0.75rem 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:hover {
+  background-color: #dbe9f6e4;
 }
