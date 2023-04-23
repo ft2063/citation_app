@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/citation_app/static/css/main.2259d14d.css",
+    "main.js": "/citation_app/static/js/main.cd7b6195.js",
+    "static/js/787.d0655c74.chunk.js": "/citation_app/static/js/787.d0655c74.chunk.js",
+    "index.html": "/citation_app/index.html",
+    "main.2259d14d.css.map": "/citation_app/static/css/main.2259d14d.css.map",
+    "main.cd7b6195.js.map": "/citation_app/static/js/main.cd7b6195.js.map",
+    "787.d0655c74.chunk.js.map": "/citation_app/static/js/787.d0655c74.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2259d14d.css",
+    "static/js/main.cd7b6195.js"
+  ]
+}
